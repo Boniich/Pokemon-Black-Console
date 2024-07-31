@@ -4,14 +4,20 @@
 #include "../types/Type.h"
 #include "../gender/Gender.h"
 #include "EnumPokemonStatus.h"
+#include "../attacks/Attack.h"
 class Pokemon
 {
 	int pokemonNumberList = 0;
 	std::string name = "";
 	Gender gender;
 	Type type;
+	Attack attackOne;
+	Attack attackTwo;
+	Attack attackThree;
+	Attack attackFour;
 	int ps = 0;
 	int maxPs = 0;
+	int level = 1;
 	int physicalAttack = 0;
 	int specialAttack = 0;
 	int physicalDefense = 0;
@@ -22,9 +28,9 @@ class Pokemon
 
 public:
 	Pokemon();
-	Pokemon(int pokemonNumberList, std::string name, GENDERES GENDER, TYPES TYPE, 
+	Pokemon(int pokemonNumberList, std::string name, GENDERES GENDER, TYPES TYPE,int level,
 		int ps, int maxPs, int physicalAttack, int specialAttack, int physicalDefense, int specialDefense,
-		int speed, POKEMONSTATUS);
+		int speed, POKEMONSTATUS, Attack attackOne);
 
 	int getPokemonNumberList();
 	void setPokemonNumberList(int);
@@ -42,6 +48,9 @@ public:
 
 	int getMaxPs();
 	void setMaxPs(int);
+
+	int getLevel();
+	void setLevel(int);
 
 	
 	int getPhysicalAttack();
@@ -64,6 +73,38 @@ public:
 
 	void setPokemonStatus(POKEMONSTATUS);
 
+
+	Attack getAttackOne() {
+		return this->attackOne;
+	}
+
+	void setAttackOne(Attack attackOne) {
+		 this->attackOne = attackOne;
+	}
+
+	Attack getAttackTwo() {
+		return this->attackTwo;
+	}
+
+	void setAttackTwo(Attack attackTwo) {
+		this->attackTwo = attackTwo;
+	}
+
+	Attack getAttackThree() {
+		return this->attackThree;
+	}
+
+	void setAttackThree(Attack attackThree) {
+		this->attackThree = attackThree;
+	}
+
+	Attack getAttackFour(Attack attackOne) {
+		return this->attackFour;
+	}
+
+	void setAttackFour(Attack attackFour) {
+		this->attackFour = attackFour;
+	}
 
 
 };

@@ -3,20 +3,25 @@
 Pokemon::Pokemon() :gender(), type() {};
 
 Pokemon::Pokemon(
-	int pokemonNumberList, std::string name, GENDERES GENDER, TYPES TYPE, int ps, int maxPs,
-	int physicalAttack, int specialAttack, int physicalDefense, int specialDefense, int speed, POKEMONSTATUS status
+	int pokemonNumberList, std::string name, GENDERES GENDER, TYPES TYPE, int ps , int maxPs, int level,
+	int physicalAttack, int specialAttack, int physicalDefense, int specialDefense, int speed, POKEMONSTATUS status,
+	Attack attackOne
 ) :gender(GENDER), type(TYPE) {
+
 
 	this->pokemonNumberList = pokemonNumberList;
 	this->name = name;
 	this->ps = ps;
 	this->maxPs = maxPs;
+	this->level = level;
 	this->physicalAttack = physicalAttack;
 	this->specialAttack = specialAttack;
 	this->physicalDefense = physicalDefense;
 	this->specialDefense = specialDefense;
 	this->speed = speed;
 	this->status = status;
+
+	this->attackOne = attackOne;
 };
 
 
@@ -36,6 +41,9 @@ void Pokemon::setPs(int ps) { this->ps = ps; };
 
 int Pokemon::getMaxPs() { return this->maxPs; };
 void Pokemon::setMaxPs(int maxPs) { this->maxPs = maxPs; };
+
+int Pokemon::getLevel() { return this->level; };
+void Pokemon::setLevel(int) { this->level = level; };
 
 
 int Pokemon::getPhysicalAttack() { return this->physicalAttack; };
