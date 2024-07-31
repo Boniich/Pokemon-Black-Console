@@ -1,0 +1,1 @@
+enum CLASSATTACKS { Fisico, Especial, Estado };
