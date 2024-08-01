@@ -32,6 +32,9 @@ public:
 		int ps, int maxPs, int physicalAttack, int specialAttack, int physicalDefense, int specialDefense,
 		int speed, POKEMONSTATUS, Attack attackOne);
 
+
+	void reducePS(int danio);
+
 	int getPokemonNumberList();
 	void setPokemonNumberList(int);
 

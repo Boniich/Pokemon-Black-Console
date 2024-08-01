@@ -24,6 +24,10 @@ Pokemon::Pokemon(
 	this->attackOne = attackOne;
 };
 
+void Pokemon::reducePS(int danio) {
+
+	this->ps = this->ps - danio;
+}
 
 int Pokemon::getPokemonNumberList() { return this->pokemonNumberList; }
 void Pokemon::setPokemonNumberList(int pokemonNumberList) { this->pokemonNumberList = pokemonNumberList; };
