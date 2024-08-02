@@ -1,5 +1,6 @@
 #pragma once
 #include "../pokemon/Pokemon.h"
+#include <iostream>
 
 class Pokemon;
 
