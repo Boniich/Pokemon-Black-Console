@@ -127,13 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="game\attacks\Attack.cpp" />
+    <ClCompile Include="game\attacks\enumAttacks.h" />
     <ClCompile Include="game\gender\Gender.cpp" />
     <ClCompile Include="game\pokemon\Pokemon.cpp" />
     <ClCompile Include="game\types\Type.cpp" />
     <ClCompile Include="PokemonBlackConsole.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game\enums\enums.h" />
+    <ClInclude Include="game\attacks\Attack.h" />
+    <ClInclude Include="game\battleSystem\battleSystem.h" />
     <ClInclude Include="game\gender\EnumGender.h" />
     <ClInclude Include="game\gender\Gender.h" />
     <ClInclude Include="game\pokemon\EnumPokemonStatus.h" />

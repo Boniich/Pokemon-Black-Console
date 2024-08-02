@@ -7,8 +7,6 @@ void battle(Pokemon& attacker, Pokemon& defender, Attack attack) {
 	
 	int danio = (((2 * attacker.getLevel() * attack.getPotency() * (attackStat / defenseStat)) / 5) + 2);
 
-
-
 	std::cout << attacker.getName() << " uso " << attack.getName();
 	defender.reducePS(danio);
 }

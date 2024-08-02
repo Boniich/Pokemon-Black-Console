@@ -18,15 +18,6 @@ Attack::Attack(int attackId, std::string name, TYPES TYPES, CLASSATTACKS classAt
 }
 
 
-//void Attack::useAttack(Pokemon& attacker, Pokemon& defender) {
-//	int attackStat = Fisico ? attacker.getPhysicalAttack() : attacker.getSpecialAttack();
-//	int defenseStat = Fisico ? defender.getPhysicalDefense() : defender.getSpecialDefense();
-//
-//	int danio = (((2 * attacker.getLevel() * _potency * (attackStat / defenseStat)) / 5) + 2);
-//
-//	std::cout << attacker.getName() << " usa " << _name << "y causa " << danio << " de danio a " << defender.getName();
-//}
-
 int Attack::getAttackId() {
 	return this->_attackId;
 }
