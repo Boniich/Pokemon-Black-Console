@@ -6,8 +6,9 @@ void BattleSystem::startBattle(Pokemon& attacker, Pokemon& defender) {
 	} while (!this->endBattle);
 }
 
-bool BattleSystem::checkPokemonPs(Pokemon pokemon) {
+bool BattleSystem::isPokemonAlive(Pokemon pokemon) {
 	if (pokemon.getPs() <= 0) {
-		this->endBattle = false;
+		return false;
 	}
+	return true;
 }

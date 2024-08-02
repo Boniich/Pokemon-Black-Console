@@ -8,7 +8,7 @@ class BattleSystem {
 	bool endBattle = true;
 
 private:
-	bool checkPokemonPs(Pokemon pokemon);
+	bool isPokemonAlive(Pokemon pokemon);
 
 public:
 	void startBattle(Pokemon& attacker, Pokemon& defender);
