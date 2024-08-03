@@ -58,7 +58,7 @@ void TurnSystem::myTurn(Pokemon& attacker, Pokemon& defender) {
 
 void TurnSystem::rivalTurn(Pokemon& attacker, Pokemon& defender) {
 	int rango_bajo = 1;
-	int rango_alto = 2;
+	int rango_alto = 1;
 
 	std::cout << "------------------------------------------------" << std::endl;
 	std::cout << "---------- Turno del pokemon rival ------------" << std::endl;
@@ -70,8 +70,8 @@ void TurnSystem::rivalTurn(Pokemon& attacker, Pokemon& defender) {
 
 
 
-	std::cout << attacker.getName() << " (Aliado) PS: " << attacker.getPs() << std::endl;
-	std::cout << defender.getName() << " (Enemigo) PS: " << defender.getPs() << std::endl;
+	std::cout << defender.getName() << " (Aliado) PS: " << defender.getPs() << std::endl;
+	std::cout << attacker.getName() << " (Enemigo) PS: " << attacker.getPs() << std::endl;
 
 	int opcion = rango_bajo + std::rand() % (rango_alto - rango_bajo + 1);
 
