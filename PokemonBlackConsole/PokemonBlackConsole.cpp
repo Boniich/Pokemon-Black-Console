@@ -10,10 +10,10 @@ int main()
     Attack araniazo(1, "Araniazo", Fuego, Fisico, 40, 100, "Arania", 40, 40);
 
 
-    Pokemon pikachu(1, "Pikachu", Masculino, Electrico, 5, 25, 25, 9, 15, 20, 25, 15, Normal, impactrueno);
-    Pokemon charmander(2, "Charmander", Masculino, Fuego, 5, 25, 25, 9, 15, 20, 25, 15, Normal, araniazo);
+    Pokemon pikachu(1, "Pikachu", Masculino, Electrico, 25, 25, 25, 9, 15, 20, 25, 15, Normal, impactrueno);
+    Pokemon charmander(2, "Charmander", Masculino, Fuego, 25, 25, 25, 9, 15, 20, 25, 15, Normal, araniazo);
 
-   
+    BattleSystem battleSystem;
 
 
     std::cout << "Nombre del pokemon: " << pikachu.getName() << std::endl;
@@ -59,9 +59,10 @@ int main()
     std::cout << "Puntos de poderes actuales: " << impactrueno.getPointOfPower() << std::endl;
     std::cout << "Puntos de poderes maximos: " << impactrueno.getMaxPointOfPower() << std::endl;
 
-    battle(pikachu, charmander, impactrueno);
+    battleSystem.startBattle(pikachu, charmander);
+    
 
-    std::cout << "Vida actual del pokemon: " << charmander.getPs() << std::endl;
+    //std::cout << "Vida actual del pokemon: " << charmander.getPs() << std::endl;
 
 }
 

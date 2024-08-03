@@ -33,6 +33,15 @@
     <ClCompile Include="game\attacks\enumAttacks.h">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="game\battleSystem\BattleSystem.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="game\battleSystem\TurnSystem\battle\Battle.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="game\battleSystem\TurnSystem\TurnSystem.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game\pokemon\Pokemon.h">
@@ -57,6 +66,12 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="game\battleSystem\battleSystem.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="game\battleSystem\TurnSystem\battle\Battle.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="game\battleSystem\TurnSystem\TurnSystem.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
