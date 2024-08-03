@@ -9,8 +9,10 @@ void BattleSystem::startBattle(Pokemon& attacker, Pokemon& defender) {
 			this->endBattle = true;
 		}
 		else {
+			std::cout << defender.getAttackArray()[0].getName();
 			//rivalTurn
-			turnSystem.rivalTurn(defender, attacker);
+			turnSystem.rivalTurn(defender,attacker );
+
 			if (ispokemonDefeated(attacker)) {
 				std::cout << "El pokemon alaido fue derrotado. Tu pierdes!" << std::endl;
 				this->endBattle = true;
@@ -19,7 +21,7 @@ void BattleSystem::startBattle(Pokemon& attacker, Pokemon& defender) {
 	} while (!this->endBattle);
 }
 
-bool BattleSystem::ispokemonDefeated(Pokemon pokemon) {
+bool BattleSystem::ispokemonDefeated(Pokemon& pokemon) {
 	if (pokemon.getPs() > 0) {
 		return false;
 	}

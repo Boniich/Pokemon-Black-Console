@@ -11,7 +11,7 @@ class BattleSystem {
 	bool endBattle = false;
 
 private:
-	bool ispokemonDefeated(Pokemon pokemon);
+	bool ispokemonDefeated(Pokemon& pokemon);
 
 public:
 	void startBattle(Pokemon& attacker, Pokemon& defender);

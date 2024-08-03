@@ -10,7 +10,7 @@ class TurnSystem
 	Battle battle;
 public:
 	void myTurn(Pokemon& attacker, Pokemon& defender);
-	void rivalTurn(Pokemon& pokemon, Pokemon& defender);
+	void rivalTurn(Pokemon& attacker, Pokemon& defender);
 
 };
 
