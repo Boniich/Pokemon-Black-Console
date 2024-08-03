@@ -8,10 +8,10 @@ class Pokemon;
 class BattleSystem {
 	//instancia del sistema de turnos
 	TurnSystem turnSystem;
-	bool endBattle = true;
+	bool endBattle = false;
 
 private:
-	bool isPokemonAlive(Pokemon pokemon);
+	bool ispokemonDefeated(Pokemon pokemon);
 
 public:
 	void startBattle(Pokemon& attacker, Pokemon& defender);
