@@ -1,20 +1,33 @@
 #pragma once
+#include <vector>
+#include <iostream>
 #include "../gender/EnumGender.h"
 #include "../types/EnumTypes.h"
 #include "../types/Type.h"
 #include "../gender/Gender.h"
 #include "EnumPokemonStatus.h"
 #include "../attacks/Attack.h"
+
+#define MAX_ATTACKS_AMOUNT 4
+
 class Pokemon
 {
 	int pokemonNumberList = 0;
 	std::string name = "";
 	Gender gender;
 	Type type;
-	Attack attackOne;
-	Attack attackTwo;
-	Attack attackThree;
-	Attack attackFour;
+	//vector
+	//std::vector<Attack> attacks;
+	//Attack* attacks[4];
+	//Attack attacks[4];
+	//Attack* attacks = new Attack[4];
+	//
+	Attack* attackPtr = nullptr;
+	int lengthAttack = 0;
+	//Attack attackOne;
+	//Attack attackTwo;
+	//Attack attackThree;
+	//Attack attackFour;
 	int ps = 0;
 	int maxPs = 0;
 	int level = 1;
@@ -30,7 +43,10 @@ public:
 	Pokemon();
 	Pokemon(int pokemonNumberList, std::string name, GENDERES GENDER, TYPES TYPE,int level,
 		int ps, int maxPs, int physicalAttack, int specialAttack, int physicalDefense, int specialDefense,
-		int speed, POKEMONSTATUS, Attack attackOne);
+		int speed, POKEMONSTATUS);
+	~Pokemon() {
+		delete[] this->attackPtr;
+	}
 
 
 	void reducePS(int danio);
@@ -77,37 +93,83 @@ public:
 	void setPokemonStatus(POKEMONSTATUS);
 
 
-	Attack getAttackOne() {
-		return this->attackOne;
+	//Attack getAttackOne() {
+	//	return this->attackOne;
+	//}
+
+	//void setAttackOne(Attack attackOne) {
+	//	 this->attackOne = attackOne;
+	//}
+
+	//Attack getAttackTwo() {
+	//	return this->attackTwo;
+	//}
+
+	//void setAttackTwo(Attack attackTwo) {
+	//	this->attackTwo = attackTwo;
+	//}
+
+	//Attack getAttackThree() {
+	//	return this->attackThree;
+	//}
+
+	//void setAttackThree(Attack attackThree) {
+	//	this->attackThree = attackThree;
+	//}
+
+	//Attack getAttackFour(Attack attackOne) {
+	//	return this->attackFour;
+	//}
+
+	//void setAttackFour(Attack attackFour) {
+	//	this->attackFour = attackFour;
+	//}
+
+	//cargamos vector
+
+	void loadInitialAttacks(Attack initialAttacks[], int attacksAmount) {
+
+
+		if (this->attackPtr == nullptr) {
+
+			if (attacksAmount > 4) {
+				std::cout << "Un pokemon no puede aprender mas de 4 ataques";
+			}
+			else if (attacksAmount >= 1 && attacksAmount <= 4) {
+
+				//delete[] this->attackPtr;
+				this->attackPtr = new Attack[attacksAmount];
+
+				for (int i = 0; i < attacksAmount; i++) {
+					this->attackPtr[i] = initialAttacks[i];
+				}
+
+				lengthAttack = attacksAmount;
+
+			}
+		}
+		else {
+			std::cout << "El pokemon ya tiene ataques iniciales! Concidere usar un metodo que agregue ataques" << std::endl;
+		}
+
+		
+		
+
 	}
 
-	void setAttackOne(Attack attackOne) {
-		 this->attackOne = attackOne;
+	int getLengthAttackArray() { return this->lengthAttack; };
+
+	Attack* getAttackArray() {
+		return this->attackPtr;
 	}
 
-	Attack getAttackTwo() {
-		return this->attackTwo;
-	}
+	//Attack* getAttacks() {
+	//	return this->attacks[0];
+	//}
 
-	void setAttackTwo(Attack attackTwo) {
-		this->attackTwo = attackTwo;
-	}
-
-	Attack getAttackThree() {
-		return this->attackThree;
-	}
-
-	void setAttackThree(Attack attackThree) {
-		this->attackThree = attackThree;
-	}
-
-	Attack getAttackFour(Attack attackOne) {
-		return this->attackFour;
-	}
-
-	void setAttackFour(Attack attackFour) {
-		this->attackFour = attackFour;
-	}
+	//std::vector<Attack> getAttacks() {
+	//	return this->attacks;
+	//}
 
 
 };

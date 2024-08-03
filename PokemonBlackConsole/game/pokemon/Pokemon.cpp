@@ -1,11 +1,11 @@
 #include "Pokemon.h"
 
-Pokemon::Pokemon() :gender(), type() {};
+Pokemon::Pokemon() :gender(), type() {
+};
 
 Pokemon::Pokemon(
 	int pokemonNumberList, std::string name, GENDERES GENDER, TYPES TYPE, int ps , int maxPs, int level,
-	int physicalAttack, int specialAttack, int physicalDefense, int specialDefense, int speed, POKEMONSTATUS status,
-	Attack attackOne
+	int physicalAttack, int specialAttack, int physicalDefense, int specialDefense, int speed, POKEMONSTATUS status
 ) :gender(GENDER), type(TYPE) {
 
 
@@ -21,7 +21,8 @@ Pokemon::Pokemon(
 	this->speed = speed;
 	this->status = status;
 
-	this->attackOne = attackOne;
+	//this->attackOne = attackOne;
+	//attacks.resize(0);
 };
 
 void Pokemon::reducePS(int danio) {
