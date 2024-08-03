@@ -22,10 +22,14 @@ void TurnSystem::myTurn(Pokemon& attacker, Pokemon& defender) {
 
 		std::cout << "---- Ataques ----" << std::endl;
 
-		std::cout << "1- " << attacker.getAttackOne().getName() << std::endl;
-		std::cout << "2- " << std::endl;
-		std::cout << "3- " << std::endl;
-		std::cout << "4- " << std::endl;
+		//for (int i = 0; i < attacker.getAttacks().size(); i++) {
+		//	std::cout << (i+1)<<"- " << attacker.getAttacks()[i].getName() << std::endl;
+		//}
+
+		//std::cout << "1- " << attacker.getAttackOne().getName() << std::endl;
+		//std::cout << "2- " << std::endl;
+		//std::cout << "3- " << std::endl;
+		//std::cout << "4- " << std::endl;
 
 		std::cout << "Introduce una opcion: " << std::endl;
 
@@ -34,7 +38,7 @@ void TurnSystem::myTurn(Pokemon& attacker, Pokemon& defender) {
 		switch (opcion)
 		{
 		case 1:
-			battle.makeDamage(attacker, defender, attacker.getAttackOne());
+			battle.makeDamage(attacker, defender, attacker.getAttackArray()[0]);
 			endTurn = true;
 			break;
 		case 2:
@@ -78,7 +82,7 @@ void TurnSystem::rivalTurn(Pokemon& attacker, Pokemon& defender) {
 	switch (opcion)
 	{
 	case 1:
-		battle.makeDamage(attacker, defender, attacker.getAttackOne());
+		battle.makeDamage(attacker, defender, attacker.getAttackArray()[0]);
 		break;
 	case 2:
 		break;
