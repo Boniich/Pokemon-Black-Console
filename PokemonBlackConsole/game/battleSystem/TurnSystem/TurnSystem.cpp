@@ -34,8 +34,9 @@ void TurnSystem::myTurn(Pokemon& attacker, Pokemon& defender) {
 		switch (opcion)
 		{
 		case 1:
-			//makeDamage(attacker, defender, attack);
+			battle.makeDamage(attacker, defender, attacker.getAttackOne());
 			endTurn = true;
+			break;
 		case 2:
 		case 3:
 		case 4:
@@ -55,6 +56,40 @@ void TurnSystem::myTurn(Pokemon& attacker, Pokemon& defender) {
 
 }
 
-void TurnSystem::rivalTurn(Pokemon& attacker, Pokemon& defeder) {
+void TurnSystem::rivalTurn(Pokemon& attacker, Pokemon& defender) {
+	int rango_bajo = 1;
+	int rango_alto = 2;
+
+	std::cout << "------------------------------------------------" << std::endl;
+	std::cout << "---------- Turno del pokemon rival ------------" << std::endl;
+	std::cout << "------------------------------------------------" << std::endl;
+
+
+	std::cout << "" << std::endl;
+	std::cout << "" << std::endl;
+
+
+
+	std::cout << attacker.getName() << " (Aliado) PS: " << attacker.getPs() << std::endl;
+	std::cout << defender.getName() << " (Enemigo) PS: " << defender.getPs() << std::endl;
+
+	int opcion = rango_bajo + std::rand() % (rango_alto - rango_bajo + 1);
+
+	switch (opcion)
+	{
+	case 1:
+		battle.makeDamage(attacker, defender, attacker.getAttackOne());
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+	case 4:
+		break;
+	default:
+		std::cout << "Ups! Se le eligio una opcion no valida";
+		break;
+	}
+
 
 }
