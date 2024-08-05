@@ -33,9 +33,7 @@ public:
 	Pokemon(int pokemonNumberList, std::string name, GENDERES GENDER, TYPES TYPE,int level,
 		int ps, int maxPs, int physicalAttack, int specialAttack, int physicalDefense, int specialDefense,
 		int speed, POKEMONSTATUS);
-	~Pokemon() {
-		delete[] this->attackPtr;
-	}
+	~Pokemon();
 
 
 	void reducePS(int danio);
@@ -81,40 +79,10 @@ public:
 
 	void setPokemonStatus(POKEMONSTATUS);
 
-	void loadInitialAttacks(Attack initialAttacks[], int attacksAmount) {
+	void loadInitialAttacks(Attack initialAttacks[], int attacksAmount);
+	int getLengthAttackArray();
+	Attack* getAttackArray();
 
-
-		if (this->attackPtr == nullptr) {
-
-			if (attacksAmount > 4) {
-				std::cout << "Un pokemon no puede aprender mas de 4 ataques";
-			}
-			else if (attacksAmount >= 1 && attacksAmount <= 4) {
-
-				this->attackPtr = new Attack[attacksAmount];
-
-				for (int i = 0; i < attacksAmount; i++) {
-					this->attackPtr[i] = initialAttacks[i];
-				}
-
-				lengthAttack = attacksAmount;
-
-			}
-		}
-		else {
-			std::cout << "El pokemon ya tiene ataques iniciales! Concidere usar un metodo que agregue ataques" << std::endl;
-		}
-
-		
-		
-
-	}
-
-	int getLengthAttackArray() { return this->lengthAttack; };
-
-	Attack* getAttackArray() {
-		return this->attackPtr;
-	}
 
 };
 
