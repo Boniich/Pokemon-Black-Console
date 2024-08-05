@@ -25,32 +25,10 @@ int main()
     
     Pokemon ratatta(7, "Ratatta", Femenino, Fuego, 25, 25, 9, 9, 15, 25, 25, 10, Normal);
     charmander.loadInitialAttacks(ataqueIniciales2, 4);
-    ratatta.loadInitialAttacks(ataqueIniciales,4);
-    
-    //ratatta.loadInitialAttacks(ataqueIniciales2, 1);
+    ratatta.loadInitialAttacks(ataqueIniciales,2);
     
 
     BattleSystem battleSystem;
-
-    std::cout << "La dir del ataque impactrueno es: " << &ataqueIniciales[0]<<std::endl;
-    std::cout << "La dir del ataque araniazo es: " << &ataqueIniciales[1] << std::endl;
-
-    //std::cout << "Nombre del pokemon: " << pikachu.getName() << std::endl;
-    //std::cout << "Sexo del pokemon: " << pikachu.getGender() << std::endl;
-    //std::cout << "Tipo del pokemon: " << pikachu.getType() << std::endl;
-    //std::cout << "Vida actual del pokemon: " << pikachu.getPs() << std::endl;
-    //std::cout << "Vida maxima del pokemon: " << pikachu.getMaxPs() << std::endl;
-    //std::cout << "Ataque fisico del pokemon: " << pikachu.getPhysicalAttack() << std::endl;
-    //std::cout << "Ataque especial del pokemon: " << pikachu.getSpecialAttack() << std::endl;
-    //std::cout << "Defensa fisica  del pokemon: " << pikachu.getPhysicalDefense() << std::endl;
-    //std::cout << "Defensa magica del pokemon: " << pikachu.getSpecialDefense() << std::endl;
-    //std::cout << "Velocidad del pokemon: " << pikachu.getSpeed() << std::endl;
-    //std::cout << "Estado del pokemon: " << pikachu.getPokemonStatus() << std::endl;
-
-    //std::cout << "Primer ataque: " << pikachu.getAttackOne().getName();
-
-    //std::cout << "" << std::endl;
-    //std::cout << "" << std::endl;
 
     std::cout << "Nombre del pokemon: " << charmander.getName() << std::endl;
     std::cout << "Sexo del pokemon: " << charmander.getGender() << std::endl;
@@ -65,30 +43,12 @@ int main()
     std::cout << "Velocidad del pokemon: " << charmander.getSpeed() << std::endl;
     std::cout << "Estado del pokemon: " << charmander.getPokemonStatus() << std::endl;
 
-
+    //borrar despues
     for (int i = 0; i < charmander.getLengthAttackArray(); i++) {
         std::cout << "El nombre del ataque es: " << charmander.getAttackArray()[i].getName() << std::endl;
         std::cout << "la dir del ataque es: " << &charmander.getAttackArray()[i] << std::endl;
     }
 
-
-    std::cout << "" << std::endl;
-    std::cout << "" << std::endl;
-
-    //std::cout << "Numero del ataque: " << impactrueno.getAttackId() << std::endl;
-    //std::cout << "Nombre del ataque: " << impactrueno.getName() << std::endl;
-    //std::cout << "Tipo del ataque: " << impactrueno.getType() << std::endl;
-    //std::cout << "Clase del ataque: " << impactrueno.getClassAttack() << std::endl;
-    //std::cout << "Potencia: " << impactrueno.getPotency() << std::endl;
-    //std::cout << "Precision: " << impactrueno.getPrecision() << std::endl;
-    //std::cout << "Descripcion: " << impactrueno.getDescripcion() << std::endl;
-    //std::cout << "Puntos de poderes actuales: " << impactrueno.getPointOfPower() << std::endl;
-    //std::cout << "Puntos de poderes maximos: " << impactrueno.getMaxPointOfPower() << std::endl;
-
-    //battleSystem.startBattle(pikachu, charmander);
-    
-
-    //std::cout << "Vida actual del pokemon: " << charmander.getPs() << std::endl;
 
     std::cout << "" << std::endl;
     std::cout << "" << std::endl;
@@ -106,24 +66,12 @@ int main()
     std::cout << "Velocidad del pokemon: " << ratatta.getSpeed() << std::endl;
     std::cout << "Estado del pokemon: " << ratatta.getPokemonStatus() << std::endl;
 
-
- //for (int i = 0; i < 2; i++) {
- //    std::cout << "El nombre del ataque es: " << ratatta.getAttacks()[i].getName() <<std::endl;
- //    std::cout << "la dir del ataque es: " << &ratatta.getAttacks()[i] << std::endl;
- //}
-    //Attack* attack = ratatta.getAttackArray();
-    //std::cout << "Attack dir" << attack++ << std::endl;
-
+    //borrar despues
     for (int i = 0; i < ratatta.getLengthAttackArray(); i++) {
         std::cout << "El nombre del ataque es: " << ratatta.getAttackArray()[i].getName() << std::endl;
         std::cout << "la dir del ataque es: " << &ratatta.getAttackArray()[i] << std::endl;
     }
 
-
-   /* std::cout << ratatta.getAttacks().max_size();
-    for (int i = 0; i < ratatta.getAttacks().size(); i++) {
-        std::cout << "El nombre del ataque es: " << ratatta.getAttacks()[i].getName() <<std::endl;
-    }*/
 
     battleSystem.startBattle(ratatta, charmander);
 

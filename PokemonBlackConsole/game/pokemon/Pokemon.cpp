@@ -20,9 +20,6 @@ Pokemon::Pokemon(
 	this->specialDefense = specialDefense;
 	this->speed = speed;
 	this->status = status;
-
-	//this->attackOne = attackOne;
-	//attacks.resize(0);
 };
 
 void Pokemon::reducePS(int danio) {
