@@ -9,7 +9,6 @@ void BattleSystem::startBattle(Pokemon& attacker, Pokemon& defender) {
 			this->endBattle = true;
 		}
 		else {
-			std::cout << defender.getAttackArray()[0].getName();
 			//rivalTurn
 			turnSystem.rivalTurn(defender,attacker );
 
