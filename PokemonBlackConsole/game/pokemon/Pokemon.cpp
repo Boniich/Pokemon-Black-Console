@@ -71,7 +71,7 @@ void Pokemon::setspeed(int speed) { this->speed = speed; };
 std::string Pokemon::getPokemonStatus() {
 	switch (this->status)
 	{
-	case Normal: return "Normal";
+	case PokemonStatus::Normal: return "Normal";
 	default:
 		return "Desconocido";
 	}

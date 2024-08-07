@@ -132,6 +132,7 @@
     <ClCompile Include="game\battleSystem\BattleSystem.cpp" />
     <ClCompile Include="game\battleSystem\TurnSystem\battle\Battle.cpp" />
     <ClCompile Include="game\battleSystem\TurnSystem\TurnSystem.cpp" />
+    <ClCompile Include="game\factorys\attackFactory\AttackFactory.cpp" />
     <ClCompile Include="game\gender\Gender.cpp" />
     <ClCompile Include="game\pokemon\Pokemon.cpp" />
     <ClCompile Include="game\types\Type.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="game\battleSystem\BattleSystem.h" />
     <ClInclude Include="game\battleSystem\TurnSystem\battle\Battle.h" />
     <ClInclude Include="game\battleSystem\TurnSystem\TurnSystem.h" />
+    <ClInclude Include="game\factorys\attackFactory\AttackFactory.h" />
     <ClInclude Include="game\gender\EnumGender.h" />
     <ClInclude Include="game\gender\Gender.h" />
     <ClInclude Include="game\pokemon\EnumPokemonStatus.h" />

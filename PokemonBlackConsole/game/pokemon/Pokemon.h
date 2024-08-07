@@ -8,6 +8,8 @@
 #include "EnumPokemonStatus.h"
 #include "../attacks/Attack.h"
 
+using namespace PokemonStatus;
+
 
 class Pokemon
 {
