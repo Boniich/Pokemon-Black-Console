@@ -15,7 +15,7 @@ int main()
     Attack araniazo = attackFactory.createAttack(3);
     Attack ascuas = attackFactory.createAttack(2);
     Attack tackle = attackFactory.createAttack(6);
-    Attack mordisco = attackFactory.createAttack(11);
+    Attack mordisco = attackFactory.createAttack(10);
 
     Attack ataquesPikachu[4] = { impactrueno,araniazo,tackle};
     Attack ataquesCharmander[4] = { mordisco,ascuas,tackle };
