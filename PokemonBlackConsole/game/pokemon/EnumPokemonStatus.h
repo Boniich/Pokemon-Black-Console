@@ -1,2 +1,6 @@
 #pragma once
-enum POKEMONSTATUS { Normal };
+
+namespace PokemonStatus {
+	enum POKEMONSTATUS { Normal };
+}
+
