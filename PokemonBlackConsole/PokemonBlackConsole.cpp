@@ -2,30 +2,29 @@
 #include "game/pokemon/Pokemon.h"
 #include "game/attacks/Attack.h"
 #include "game/battleSystem/battleSystem.h"
+#include "game/factorys/attackFactory/AttackFactory.h"
+
+using namespace Types;
 
 int main()
 {
 
-    Attack impactrueno(1, "Impactrueno", Electrico, Especial, 40, 100, "Impacta con un trueno", 40, 40);
-    Attack araniazo(1, "Araniazo", Fuego, Fisico, 40, 100, "Arania", 40, 40);
-    Attack lanzallama(1, "lanzallama", Fuego, Fisico, 40, 100, "Arania", 40, 40);
-    Attack tackle(1, "tackle", Fuego, Fisico, 40, 100, "Arania", 40, 40);
-    Attack tacakle(1, "asa", Fuego, Fisico, 40, 100, "Arania", 40, 40);
+    AttackFactory attackFactory;
 
-    Attack tacakle2(1, "Cola ferrea", Fuego, Fisico, 40, 100, "Arania", 40, 40);
-    Attack ascuas(1, "Ascuas", Fuego, Fisico, 40, 100, "Arania", 40, 40);
-    Attack grunidio(1, "Grunido", Fuego, Fisico, 40, 100, "Arania", 40, 40);
-    Attack vuelo(1, "vuelo", Fuego, Fisico, 40, 100, "Arania", 40, 40);
+    Attack impactrueno = attackFactory.createAttack(1);
+    Attack araniazo = attackFactory.createAttack(3);
+    Attack ascuas = attackFactory.createAttack(2);
+    Attack tackle = attackFactory.createAttack(6);
+    Attack mordisco = attackFactory.createAttack(11);
 
-    Attack ataqueIniciales[4] = { impactrueno,araniazo,lanzallama,tackle};
-    Attack ataqueIniciales2[4] = { tacakle2,ascuas,grunidio,vuelo };
+    Attack ataquesPikachu[4] = { impactrueno,araniazo,tackle};
+    Attack ataquesCharmander[4] = { mordisco,ascuas,tackle };
 
-    Pokemon pikachu(1, "Pikachu", Masculino, Electrico, 25, 25, 25, 9, 15, 20, 25, 15, Normal);
-    Pokemon charmander(2, "Charmander", Masculino, Fuego, 25, 25, 25, 9, 15, 20, 25, 15, Normal);
+    Pokemon pikachu(1, "Pikachu", Masculino, Electrico, 25, 25, 25, 9, 15, 20, 25, 15, PokemonStatus::Normal);
+    Pokemon charmander(2, "Charmander", Masculino, Fuego, 25, 25, 25, 9, 15, 20, 25, 15, PokemonStatus::Normal);
     
-    Pokemon ratatta(7, "Ratatta", Femenino, Fuego, 25, 25, 9, 9, 15, 25, 25, 10, Normal);
-    charmander.loadInitialAttacks(ataqueIniciales2, 4);
-    ratatta.loadInitialAttacks(ataqueIniciales,2);
+    charmander.loadInitialAttacks(ataquesCharmander, 3);
+    pikachu.loadInitialAttacks(ataquesPikachu,2);
     
 
     BattleSystem battleSystem;
@@ -53,27 +52,27 @@ int main()
     std::cout << "" << std::endl;
     std::cout << "" << std::endl;
 
-    std::cout << "Nombre del pokemon: " << ratatta.getName() << std::endl;
-    std::cout << "Sexo del pokemon: " << ratatta.getGender() << std::endl;
-    std::cout << "Tipo del pokemon: " << ratatta.getType() << std::endl;
-    std::cout << "Nivel del pokemon: " << ratatta.getLevel() << std::endl;
-    std::cout << "Vida actual del pokemon: " << ratatta.getPs() << std::endl;
-    std::cout << "Vida maxima del pokemon: " << ratatta.getMaxPs() << std::endl;
-    std::cout << "Ataque fisico del pokemon: " << ratatta.getPhysicalAttack() << std::endl;
-    std::cout << "Ataque especial del pokemon: " << ratatta.getSpecialAttack() << std::endl;
-    std::cout << "Defensa fisica  del pokemon: " << ratatta.getPhysicalDefense() << std::endl;
-    std::cout << "Defensa magica del pokemon: " << ratatta.getSpecialDefense() << std::endl;
-    std::cout << "Velocidad del pokemon: " << ratatta.getSpeed() << std::endl;
-    std::cout << "Estado del pokemon: " << ratatta.getPokemonStatus() << std::endl;
+    std::cout << "Nombre del pokemon: " << pikachu.getName() << std::endl;
+    std::cout << "Sexo del pokemon: " << pikachu.getGender() << std::endl;
+    std::cout << "Tipo del pokemon: " << pikachu.getType() << std::endl;
+    std::cout << "Nivel del pokemon: " << pikachu.getLevel() << std::endl;
+    std::cout << "Vida actual del pokemon: " << pikachu.getPs() << std::endl;
+    std::cout << "Vida maxima del pokemon: " << pikachu.getMaxPs() << std::endl;
+    std::cout << "Ataque fisico del pokemon: " << pikachu.getPhysicalAttack() << std::endl;
+    std::cout << "Ataque especial del pokemon: " << pikachu.getSpecialAttack() << std::endl;
+    std::cout << "Defensa fisica  del pokemon: " << pikachu.getPhysicalDefense() << std::endl;
+    std::cout << "Defensa magica del pokemon: " << pikachu.getSpecialDefense() << std::endl;
+    std::cout << "Velocidad del pokemon: " << pikachu.getSpeed() << std::endl;
+    std::cout << "Estado del pokemon: " << pikachu.getPokemonStatus() << std::endl;
 
     //borrar despues
-    for (int i = 0; i < ratatta.getLengthAttackArray(); i++) {
-        std::cout << "El nombre del ataque es: " << ratatta.getAttackArray()[i].getName() << std::endl;
-        std::cout << "la dir del ataque es: " << &ratatta.getAttackArray()[i] << std::endl;
+    for (int i = 0; i < pikachu.getLengthAttackArray(); i++) {
+        std::cout << "El nombre del ataque es: " << pikachu.getAttackArray()[i].getName() << std::endl;
+        std::cout << "la dir del ataque es: " << &pikachu.getAttackArray()[i] << std::endl;
     }
 
 
-    battleSystem.startBattle(ratatta, charmander);
+    battleSystem.startBattle(pikachu, charmander);
 
 }
 
