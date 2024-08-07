@@ -2,30 +2,17 @@
 #include "game/pokemon/Pokemon.h"
 #include "game/attacks/Attack.h"
 #include "game/battleSystem/battleSystem.h"
-#include "game/factorys/attackFactory/AttackFactory.h"
+#include "game/factorys/pokemonFactory/PokemonFactory.h"
 
 using namespace Types;
 
 int main()
 {
+    PokemonFactory pokemonFactory;
 
-    AttackFactory attackFactory;
+    Pokemon charmander = pokemonFactory.createPokemon(2);
+    Pokemon pikachu = pokemonFactory.createPokemon(1);
 
-    Attack impactrueno = attackFactory.createAttack(1);
-    Attack araniazo = attackFactory.createAttack(3);
-    Attack ascuas = attackFactory.createAttack(2);
-    Attack tackle = attackFactory.createAttack(6);
-    Attack mordisco = attackFactory.createAttack(10);
-
-    Attack ataquesPikachu[4] = { impactrueno,araniazo,tackle};
-    Attack ataquesCharmander[4] = { mordisco,ascuas,tackle };
-
-    Pokemon pikachu(1, "Pikachu", Masculino, Electrico, 25, 25, 25, 9, 15, 20, 25, 15, PokemonStatus::Normal);
-    Pokemon charmander(2, "Charmander", Masculino, Fuego, 25, 25, 25, 9, 15, 20, 25, 15, PokemonStatus::Normal);
-    
-    charmander.loadInitialAttacks(ataquesCharmander, 3);
-    pikachu.loadInitialAttacks(ataquesPikachu,2);
-    
 
     BattleSystem battleSystem;
 
