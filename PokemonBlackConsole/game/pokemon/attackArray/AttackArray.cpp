@@ -1,16 +1,13 @@
 #include "AttackArray.h"
-#include "AttackArray.h"
 
 AttackArray::AttackArray() {
 	this->attackPtr = nullptr;
-	std::cout << "La dir del punteor es " << &this->attackPtr << std::endl;
 	this->lengthArray = 0;
 	this->minAttackAmount = 1;
 	this->maxAttackAmount = 4;
 }
 
 AttackArray::~AttackArray() {
-	std::cout << "Se ejecuto " << std::endl;
 	delete[] this->attackPtr;
 }
 

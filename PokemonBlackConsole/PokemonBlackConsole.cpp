@@ -18,16 +18,16 @@ int main()
     Attack tackle = attackFactory.createAttack(6);
     Attack mordisco = attackFactory.createAttack(10);
 
-    Attack ataquesPikachu[3] = { impactrueno,araniazo,mordisco };
+    Attack ataquesPikachu[4] = { impactrueno,araniazo,mordisco ,ascuas };
     Attack ataquesCharmander[1] = { mordisco };
     
     Pokemon charmander = pokemonFactory.createPokemon(2);
     Pokemon pikachu = pokemonFactory.createPokemon(1);
 
     charmander.getAttackArray().loadInitialAttacks(ataquesCharmander,1);
-    pikachu.getAttackArray().loadInitialAttacks(ataquesPikachu, 3);
+    pikachu.getAttackArray().loadInitialAttacks(ataquesPikachu, 4);
 
-   // Attack burbuja = attackFactory.createAttack(4);
+    //Attack burbuja = attackFactory.createAttack(4);
 
     //pikachu.getAttackArray().pushAttack(burbuja);
 
