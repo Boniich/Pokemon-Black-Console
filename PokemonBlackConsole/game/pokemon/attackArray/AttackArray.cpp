@@ -40,7 +40,61 @@ void AttackArray::loadInitialAttacks(Attack initialAttacks[], int attacksAmount)
 }
 
 void AttackArray::pushAttack(Attack attack) {
-	//TODO
+	//1- comprobamos que el array no supere la maxima capacidad
+	//2- si la supera debemos pedirle al usuario que elimine un attacke
+	//3- Si no la supera, debemos copiar los attackes actuales en un array temporal
+		//3.1 - eliminar el array actual
+		//3.2 - pedir nuevamente array pero con mas memoria
+	int opcion = 0;
+
+	if (this->lengthArray == this->maxAttackAmount) {
+		//debemos pedirle al usuario que elimine un ataque
+		std::cout << "No se puede aprender mas de cuatro ataques. Debes eliminar un ataque para aprender " << attack.getName() << std::endl;
+		std::cout << "Seguro que deseas hacerlo?" <<std::endl;
+		std::cout << "1- Si" << std::endl;
+		std::cout << "2- No" << std::endl;
+		std::cin >> opcion;
+
+		if (opcion == 1) {
+			for (int i = 0; i < this->lengthArray; i++) {
+				std::cout << (i + 1) << "- " <<this->getAttack()[i].getName() << std::endl;
+			}
+			std::cout << "Selecciona una opcion: ";
+			std::cin >> opcion;
+
+			this->getAttack()[opcion - 1] = attack;
+		}
+		else {
+			std::cout << "Si desides no aprender este ataque, puede ser que no puedas aprenderlo luego" << attack.getName() << std::endl;
+			std::cout << "Estas seguro?";
+			std::cout << "1- Si" << std::endl;
+			std::cout << "2- No" << std::endl;
+			std::cin >> opcion;
+		}
+	}
+	else {
+		int auxLength = this->lengthArray + 1;
+		Attack* aux = new Attack[auxLength];
+		for (int i = 0; i < auxLength; i++) {
+			if (i == this->lengthArray) {
+				aux[i] = attack;
+			}
+			else {
+				aux[i] = this->attackPtr[i];
+			}
+		}
+		delete[] this->attackPtr;
+
+		this->attackPtr = new Attack[auxLength];
+
+		for (int i = 0; i < auxLength; i++) {
+			this->attackPtr[i] = aux[i];
+		}
+		delete[] aux;
+
+		this->lengthArray = auxLength;
+		//se hace el proceso de copiar, borrar, pedir nueva memoria y darle forma al nuevo array
+	}
 }
 
 
