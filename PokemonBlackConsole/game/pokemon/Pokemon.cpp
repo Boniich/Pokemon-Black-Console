@@ -1,12 +1,12 @@
 #include "Pokemon.h"
 
-Pokemon::Pokemon() :gender(), type() {
+Pokemon::Pokemon() :gender(), type(), attacks() {
 };
 
 Pokemon::Pokemon(
 	int pokemonNumberList, std::string name, GENDERES GENDER, TYPES TYPE, int ps , int maxPs, int level,
 	int physicalAttack, int specialAttack, int physicalDefense, int specialDefense, int speed, POKEMONSTATUS status
-) :gender(GENDER), type(TYPE) {
+) :gender(GENDER), type(TYPE), attacks() {
 
 
 	this->pokemonNumberList = pokemonNumberList;
@@ -21,10 +21,6 @@ Pokemon::Pokemon(
 	this->speed = speed;
 	this->status = status;
 };
-
-Pokemon::~Pokemon() {
-	delete[] this->attackPtr;
-}
 
 void Pokemon::reducePS(int danio) {
 
@@ -79,35 +75,4 @@ std::string Pokemon::getPokemonStatus() {
 
 void Pokemon::setPokemonStatus(POKEMONSTATUS status) { this->status = status; }
 
-void Pokemon::loadInitialAttacks(Attack initialAttacks[], int attacksAmount) {
-
-
-	if (this->attackPtr == nullptr) {
-
-		if (attacksAmount > 4) {
-			std::cout << "Un pokemon no puede aprender mas de 4 ataques";
-		}
-		else if (attacksAmount >= 1 && attacksAmount <= 4) {
-
-			this->attackPtr = new Attack[attacksAmount];
-
-			for (int i = 0; i < attacksAmount; i++) {
-				this->attackPtr[i] = initialAttacks[i];
-			}
-
-			lengthAttack = attacksAmount;
-
-		}
-	}
-	else {
-		std::cout << "El pokemon ya tiene ataques iniciales! Concidere usar un metodo que agregue ataques" << std::endl;
-	};
-
-}
-
-
-int Pokemon::getLengthAttackArray() { return this->lengthAttack; };
-
-Attack* Pokemon::getAttackArray() {
-	return this->attackPtr;
-}
+AttackArray& Pokemon::getAttackArray() { return this->attacks; }

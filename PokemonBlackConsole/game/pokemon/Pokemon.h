@@ -7,6 +7,7 @@
 #include "../gender/Gender.h"
 #include "EnumPokemonStatus.h"
 #include "../attacks/Attack.h"
+#include "./attackArray/AttackArray.h"
 
 using namespace PokemonStatus;
 
@@ -17,8 +18,9 @@ class Pokemon
 	std::string name = "";
 	Gender gender;
 	Type type;
-	Attack* attackPtr = nullptr;
-	int lengthAttack = 0;
+	AttackArray attacks;
+	//Attack* attackPtr = nullptr;
+	//int lengthAttack = 0;
 	int ps = 0;
 	int maxPs = 0;
 	int level = 1;
@@ -35,7 +37,6 @@ public:
 	Pokemon(int pokemonNumberList, std::string name, GENDERES GENDER, TYPES TYPE,int level,
 		int ps, int maxPs, int physicalAttack, int specialAttack, int physicalDefense, int specialDefense,
 		int speed, POKEMONSTATUS);
-	~Pokemon();
 
 
 	void reducePS(int danio);
@@ -81,9 +82,7 @@ public:
 
 	void setPokemonStatus(POKEMONSTATUS);
 
-	void loadInitialAttacks(Attack initialAttacks[], int attacksAmount);
-	int getLengthAttackArray();
-	Attack* getAttackArray();
+	AttackArray& getAttackArray();
 
 
 };

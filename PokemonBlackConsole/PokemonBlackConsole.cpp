@@ -24,8 +24,8 @@ int main()
     Pokemon charmander = pokemonFactory.createPokemon(1);
     Pokemon pikachu = pokemonFactory.createPokemon(2);
 
-    charmander.loadInitialAttacks(ataquesCharmander,3);
-    pikachu.loadInitialAttacks(ataquesPikachu, 3);
+    charmander.getAttackArray().loadInitialAttacks(ataquesCharmander,3);
+    pikachu.getAttackArray().loadInitialAttacks(ataquesPikachu, 3);
 
 
     BattleSystem battleSystem;
@@ -44,9 +44,9 @@ int main()
     std::cout << "Estado del pokemon: " << charmander.getPokemonStatus() << std::endl;
 
     //borrar despues
-    for (int i = 0; i < charmander.getLengthAttackArray(); i++) {
-        std::cout << "El nombre del ataque es: " << charmander.getAttackArray()[i].getName() << std::endl;
-        std::cout << "la dir del ataque es: " << &charmander.getAttackArray()[i] << std::endl;
+    for (int i = 0; i < pikachu.getAttackArray().getLengthArray(); i++) {
+        std::cout << "El nombre del ataque es: " << charmander.getAttackArray().getAttack()[i].getName() << std::endl;
+        std::cout << "la dir del ataque es: " << &charmander.getAttackArray().getAttack()[i] << std::endl;
     }
 
 
@@ -67,9 +67,9 @@ int main()
     std::cout << "Estado del pokemon: " << pikachu.getPokemonStatus() << std::endl;
 
     //borrar despues
-    for (int i = 0; i < pikachu.getLengthAttackArray(); i++) {
-        std::cout << "El nombre del ataque es: " << pikachu.getAttackArray()[i].getName() << std::endl;
-        std::cout << "la dir del ataque es: " << &pikachu.getAttackArray()[i] << std::endl;
+    for (int i = 0; i < pikachu.getAttackArray().getLengthArray(); i++) {
+        std::cout << "El nombre del ataque es: " << pikachu.getAttackArray().getAttack()[i].getName() << std::endl;
+        std::cout << "la dir del ataque es: " << &pikachu.getAttackArray().getAttack()[i] << std::endl;
     }
 
 

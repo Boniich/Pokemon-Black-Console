@@ -135,6 +135,7 @@
     <ClCompile Include="game\factorys\attackFactory\AttackFactory.cpp" />
     <ClCompile Include="game\factorys\pokemonFactory\PokemonFactory.cpp" />
     <ClCompile Include="game\gender\Gender.cpp" />
+    <ClCompile Include="game\pokemon\attackArray\AttackArray.cpp" />
     <ClCompile Include="game\pokemon\Pokemon.cpp" />
     <ClCompile Include="game\types\Type.cpp" />
     <ClCompile Include="PokemonBlackConsole.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="game\factorys\pokemonFactory\PokemonFactory.h" />
     <ClInclude Include="game\gender\EnumGender.h" />
     <ClInclude Include="game\gender\Gender.h" />
+    <ClInclude Include="game\pokemon\attackArray\AttackArray.h" />
     <ClInclude Include="game\pokemon\EnumPokemonStatus.h" />
     <ClInclude Include="game\pokemon\Pokemon.h" />
     <ClInclude Include="game\types\EnumTypes.h" />

@@ -22,20 +22,20 @@ void TurnSystem::myTurn(Pokemon& attacker, Pokemon& defender) {
 
 		std::cout << "---- Ataques ----" << std::endl;
 
-		for (int i = 0; i < attacker.getLengthAttackArray(); i++) {
-			std::cout << (i+1)<<"- " << attacker.getAttackArray()[i].getName() << std::endl;
+		for (int i = 0; i < attacker.getAttackArray().getLengthArray(); i++) {
+			std::cout << (i+1)<<"- " << attacker.getAttackArray().getAttack()[i].getName() << std::endl;
 		}
 
 		std::cout << "Introduce una opcion: " << std::endl;
 		std::cin >> opcion;
 
 
-		if (opcion <= 0 || opcion > attacker.getLengthAttackArray()) {
+		if (opcion <= 0 || opcion > attacker.getAttackArray().getLengthArray()) {
 
 			std::cout << "Opcion no valida! Vuelva a seleccionar una opcion. " << std::endl;
 		}
 		else {
-			battle.makeDamage(attacker, defender, attacker.getAttackArray()[opcion - 1]);
+			battle.makeDamage(attacker, defender, attacker.getAttackArray().getAttack()[opcion - 1]);
 			endTurn = true;
 		}
 
@@ -49,7 +49,7 @@ void TurnSystem::myTurn(Pokemon& attacker, Pokemon& defender) {
 
 void TurnSystem::rivalTurn(Pokemon& attacker, Pokemon& defender) {
 	int rango_bajo = 1;
-	int rango_alto = attacker.getLengthAttackArray();
+	int rango_alto = attacker.getAttackArray().getLengthArray();
 
 	std::cout << "------------------------------------------------" << std::endl;
 	std::cout << "---------- Turno del pokemon rival ------------" << std::endl;
@@ -64,12 +64,12 @@ void TurnSystem::rivalTurn(Pokemon& attacker, Pokemon& defender) {
 
 	int opcion = rango_bajo + std::rand() % (rango_alto - rango_bajo + 1);
 
-	if (opcion <= 0 || opcion > attacker.getLengthAttackArray()) {
+	if (opcion <= 0 || opcion > attacker.getAttackArray().getLengthArray()) {
 
 		std::cout << "Ups! Algo salio mal al atacar! Consulte con su programador de confianza" << std::endl;
 	}
 	else {
-		battle.makeDamage(attacker, defender, attacker.getAttackArray()[opcion - 1]);
+		battle.makeDamage(attacker, defender, attacker.getAttackArray().getAttack()[opcion - 1]);
 	}
 
 }
