@@ -18,15 +18,18 @@ int main()
     Attack tackle = attackFactory.createAttack(6);
     Attack mordisco = attackFactory.createAttack(10);
 
-    Attack ataquesPikachu[3] = { impactrueno,araniazo,tackle };
-    Attack ataquesCharmander[3] = { mordisco,ascuas,tackle };
+    Attack ataquesPikachu[3] = { impactrueno,araniazo,mordisco };
+    Attack ataquesCharmander[1] = { mordisco };
     
-    Pokemon charmander = pokemonFactory.createPokemon(1);
-    Pokemon pikachu = pokemonFactory.createPokemon(2);
+    Pokemon charmander = pokemonFactory.createPokemon(2);
+    Pokemon pikachu = pokemonFactory.createPokemon(1);
 
-    charmander.getAttackArray().loadInitialAttacks(ataquesCharmander,3);
+    charmander.getAttackArray().loadInitialAttacks(ataquesCharmander,1);
     pikachu.getAttackArray().loadInitialAttacks(ataquesPikachu, 3);
 
+   // Attack burbuja = attackFactory.createAttack(4);
+
+    //pikachu.getAttackArray().pushAttack(burbuja);
 
     BattleSystem battleSystem;
 
@@ -44,7 +47,7 @@ int main()
     std::cout << "Estado del pokemon: " << charmander.getPokemonStatus() << std::endl;
 
     //borrar despues
-    for (int i = 0; i < pikachu.getAttackArray().getLengthArray(); i++) {
+    for (int i = 0; i < charmander.getAttackArray().getLengthArray(); i++) {
         std::cout << "El nombre del ataque es: " << charmander.getAttackArray().getAttack()[i].getName() << std::endl;
         std::cout << "la dir del ataque es: " << &charmander.getAttackArray().getAttack()[i] << std::endl;
     }
