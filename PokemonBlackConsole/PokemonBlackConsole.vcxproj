@@ -135,6 +135,9 @@
     <ClCompile Include="game\factorys\attackFactory\AttackFactory.cpp" />
     <ClCompile Include="game\factorys\pokemonFactory\PokemonFactory.cpp" />
     <ClCompile Include="game\gender\Gender.cpp" />
+    <ClCompile Include="game\gender\trainerGender\TrainerGender.cpp" />
+    <ClCompile Include="game\player\loadPlayer\LoadPlayerView.cpp" />
+    <ClCompile Include="game\player\Player.cpp" />
     <ClCompile Include="game\pokemon\attackArray\AttackArray.cpp" />
     <ClCompile Include="game\pokemon\Pokemon.cpp" />
     <ClCompile Include="game\types\Type.cpp" />
@@ -149,6 +152,9 @@
     <ClInclude Include="game\factorys\pokemonFactory\PokemonFactory.h" />
     <ClInclude Include="game\gender\EnumGender.h" />
     <ClInclude Include="game\gender\Gender.h" />
+    <ClInclude Include="game\gender\trainerGender\TrainerGender.h" />
+    <ClInclude Include="game\player\loadPlayer\LoadPlayerView.h" />
+    <ClInclude Include="game\player\Player.h" />
     <ClInclude Include="game\pokemon\attackArray\AttackArray.h" />
     <ClInclude Include="game\pokemon\EnumPokemonStatus.h" />
     <ClInclude Include="game\pokemon\Pokemon.h" />
