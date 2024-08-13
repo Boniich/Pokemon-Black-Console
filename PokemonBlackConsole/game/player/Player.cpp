@@ -1,7 +1,10 @@
 #include "Player.h"
 
-Player::Player(std::string nombre, TrainerGenderEnum gender) : trainerGender(gender) {
-
+Player::Player(std::string name, TrainerGenderEnum gender) : trainerGender(gender) {
+	this->id = 1;
+	this->name = name;
+	this->money = 0;
+	
 }
 
 std::string Player::getName() { return this->name; }
