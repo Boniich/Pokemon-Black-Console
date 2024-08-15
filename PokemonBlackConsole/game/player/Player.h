@@ -17,7 +17,7 @@ public:
 	std::string getGender();
 	Pokemon* getPokemon();
 	bool changePokemon(int posPokemonOne, int posPokemonTwo);
-	bool catchPokemon(Pokemon& pokemon);
+	void addPokemon(Pokemon pokemon);
 
 
 };
