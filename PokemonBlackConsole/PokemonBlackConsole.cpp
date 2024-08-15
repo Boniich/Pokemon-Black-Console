@@ -19,9 +19,107 @@ int main()
     std::cout << "" << std::endl;
     std::cout << "" << std::endl;
 
+    PokemonFactory pokemonFactory;
+    AttackFactory attackFactory;
+
+    bool endGame = false;
+    bool initialPokemonSelected = false;
+    int selectInitialPokemon = 0;
+    int opcion = 0;
     Player player = loadPlayerView();
 
+    system("cls");
+
     showPlayerData(player);
+
+
+    std::cout << "------------------------------------------------------------" << std::endl;
+    std::cout << "------------------- Laboratorio de OAK ---------------------" << std::endl;
+    std::cout << "------------------------------------------------------------" << std::endl;
+
+    Pokemon bulbasaur = pokemonFactory.createPokemon(0);
+    Pokemon squirtle = pokemonFactory.createPokemon(6);
+    Pokemon charmander = pokemonFactory.createPokemon(3);
+
+    do {
+        std::cout << "Necesitas un pokemon para iniciar tu aventura, estos son los 3 iniciales de esta region" << std::endl;
+
+
+        std::cout << "" << std::endl;
+
+        std::cout << "1- " << bulbasaur.getName() << " - Tipo: " << bulbasaur.getType() << std::endl;
+        std::cout << "" << std::endl;
+        std::cout << "2- " << squirtle.getName() << " - Tipo: " << squirtle.getType() << std::endl;
+        std::cout << "" << std::endl;
+        std::cout << "3- " << charmander.getName() << " - Tipo: " << charmander.getType() << std::endl;
+        std::cout << "" << std::endl;
+
+        std::cout << "Selecciona uno" << std::endl;
+        std::cin >> selectInitialPokemon;
+
+        switch (selectInitialPokemon)
+        {
+        case 1:
+            player.addPokemon(bulbasaur);
+            initialPokemonSelected = true;
+            break;
+        case 2:
+            player.addPokemon(squirtle);
+            initialPokemonSelected = true;
+            break;
+        case 3:
+            player.addPokemon(charmander);
+            initialPokemonSelected = true;
+            break;
+        default:
+            std::cout << "La opcion no es valida!" << std::endl;
+            break;
+        }
+
+        std::cout << "Has obtenido a " << player.getPokemon()->getName();
+
+    } while (!initialPokemonSelected);
+   
+
+
+    //do
+    //{
+
+    //    std::cout << "------------------------------------------------------------" << std::endl;
+    //    std::cout << "---------------------- Menu Principal ----------------------" << std::endl;
+    //    std::cout << "------------------------------------------------------------" << std::endl;
+
+
+    //    std::cout << "1- Batalla" << std::endl;
+    //    std::cout << "2- Ver equipo pokemon" << std::endl;
+    //    std::cout << "3- Ver tus datos" << std::endl;
+    //    std::cout << "4- Salir" << std::endl;
+    //    std::cout << "Introduce una opcion: ";
+
+    //    std::cin >> opcion;
+
+
+    //    switch (opcion)
+    //    {
+    //    case 1:
+    //        std::cout << "Batalla" << std::endl;
+    //        break;
+    //    case 2:
+    //        std::cout << "Equipo pokemon" << std::endl;
+    //        break;
+    //    case 3:
+    //        std::cout << "Ver tus datos" << std::endl;
+    //        break;
+    //    case 4:
+    //        std::cout << "Muchas gracias por jugar pokemon black console! Vuelve pronto!" << std::endl;
+    //        endGame = true;
+    //        break;
+    //    default:
+    //        std::cout << "La opcion ingresada no es valida!";
+    //        break;
+    //    }
+
+    //} while (!endGame);
 
 
     //PokemonFactory pokemonFactory;
