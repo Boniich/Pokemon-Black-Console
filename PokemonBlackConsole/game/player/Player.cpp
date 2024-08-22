@@ -8,9 +8,4 @@ Player::Player(std::string name, TrainerGenderEnum gender) : trainerGender(gende
 
 std::string Player::getName() { return this->name; }
 std::string Player::getGender() { return this->trainerGender.getTrainerGender(); }
-Pokemon* Player::getPokemon() { return this->pokemon; }
-bool Player::changePokemon(int posPokemonOne, int posPokemonTwo) { return false; };
-void Player::addPokemon(Pokemon& pokemon) { 
-	
-		this->pokemon[0] = pokemon;
-};
+PokemonTeam& Player::getPokemonTeam() {return this->pokemonTeam;};
