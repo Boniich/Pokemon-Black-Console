@@ -51,7 +51,8 @@ int main()
     Attack ataquesPikachu[4] = { impactrueno,araniazo,mordisco ,ascuas };
 
 
-    Pokemon pikachu = pokemonFactory.createPokemon(9);
+    //Pokemon pikachu = pokemonFactory.createPokemon(9);
+    //pikachu.getAttackArray().loadInitialAttacks(ataquesPikachu,4);
 
     Pokemon bulbasaur = pokemonFactory.createPokemon(0);
     bulbasaur.getAttackArray().loadInitialAttacks(ataquesBulbasaur, 2);
@@ -83,19 +84,23 @@ int main()
         switch (selectInitialPokemon)
         {
         case 1:
-            player.addPokemon(bulbasaur);
-            pokemonRival = charmander;
-            initialPokemonSelected = true;
+            if (player.getPokemonTeam().addPokemonToTeam(bulbasaur)) {
+                pokemonRival = charmander;
+                initialPokemonSelected = true;
+            }
             break;
         case 2:
-            player.addPokemon(squirtle);
-            pokemonRival = bulbasaur;
-            initialPokemonSelected = true;
+            if (player.getPokemonTeam().addPokemonToTeam(squirtle)) {
+                pokemonRival = bulbasaur;
+                initialPokemonSelected = true;
+            }
             break;
         case 3:
-            player.addPokemon(charmander);
-            pokemonRival = squirtle;
-            initialPokemonSelected = true;
+            if (player.getPokemonTeam().addPokemonToTeam(charmander)) {
+                pokemonRival = squirtle;
+                initialPokemonSelected = true;
+            }
+
             break;
         default:
             std::cout << "La opcion no es valida!" << std::endl;
@@ -105,13 +110,12 @@ int main()
         
 
     } while (!initialPokemonSelected);
-    std::cout << "Has obtenido a " << player.getPokemon()->getName() << std::endl;
+    std::cout << "Has obtenido a " << player.getPokemonTeam().getFirstPokemon().getName() << std::endl;
     std::cout << "Tu rival a obtenido a  " << pokemonRival.getName() << std::endl;
 
     std::cout << "Oh tu rival te reta a una batalla pokemon!" << std::endl;
-
-    battleSystem.startBattle(player.getPokemon()[0], pokemonRival);
-
+    
+    battleSystem.startBattle(player.getPokemonTeam().getFirstPokemon(), pokemonRival);
 
     do
     {
@@ -133,13 +137,23 @@ int main()
         switch (opcion)
         {
         case 1:
+        {
+            //la idea es que este sea un pokemon random
+            Pokemon pikachu = pokemonFactory.createPokemon(9);
+            pikachu.getAttackArray().loadInitialAttacks(ataquesPikachu,4);
             std::cout << "Batalla" << std::endl;
-            battleSystem.startBattle(player.getPokemon()[0], pikachu);
+            battleSystem.startBattle(player.getPokemonTeam().getFirstPokemon(), pikachu);
+            //No funciona porque el pokemon es destruido
+            //if (player.getPokemonTeam().addPokemonToTeam(pikachu)) {
+            //    Pokemon* pokemonPtr = new Pokemon();
+            //    pokemonPtr = &pikachu;
+            //}
             break;
+        }
         case 2:
             std::cout << "--- Equipo pokemon ---" << std::endl;
-            for (int i = 0; i < 1; i++) {
-                std::cout << "Nombre del pokemon: "<<player.getPokemon()[i].getName() << std::endl;
+            for (int i = 0; i < player.getPokemonTeam().getTeamSize(); i++) {
+                std::cout << "Nombre del pokemon: "<<player.getPokemonTeam().getTeam()[i].getName() << std::endl;
             }
             break;
         case 3:

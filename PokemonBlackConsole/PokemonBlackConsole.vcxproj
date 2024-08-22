@@ -138,6 +138,7 @@
     <ClCompile Include="game\gender\trainerGender\TrainerGender.cpp" />
     <ClCompile Include="game\player\loadPlayer\LoadPlayerView.cpp" />
     <ClCompile Include="game\player\Player.cpp" />
+    <ClCompile Include="game\player\pokemonTeam\PokemonTeam.cpp" />
     <ClCompile Include="game\pokemon\attackArray\AttackArray.cpp" />
     <ClCompile Include="game\pokemon\Pokemon.cpp" />
     <ClCompile Include="game\types\Type.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="game\gender\trainerGender\TrainerGender.h" />
     <ClInclude Include="game\player\loadPlayer\LoadPlayerView.h" />
     <ClInclude Include="game\player\Player.h" />
+    <ClInclude Include="game\player\pokemonTeam\PokemonTeam.h" />
     <ClInclude Include="game\pokemon\attackArray\AttackArray.h" />
     <ClInclude Include="game\pokemon\EnumPokemonStatus.h" />
     <ClInclude Include="game\pokemon\Pokemon.h" />
