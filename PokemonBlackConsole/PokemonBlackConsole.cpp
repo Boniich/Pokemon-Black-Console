@@ -115,8 +115,8 @@ int main()
 
     std::cout << "Oh tu rival te reta a una batalla pokemon!" << std::endl;
     
-    battleSystem.startBattle(player.getPokemonTeam().getFirstPokemon(), pokemonRival);
-
+    //battleSystem.startBattle(player.getPokemonTeam().getFirstPokemon(), pokemonRival);
+    player.getPokemonTeam().addPokemonToTeam(charmander);
     do
     {
 
@@ -151,10 +151,129 @@ int main()
             break;
         }
         case 2:
+        {
+            int opcion;
+            std::cout << "" << std::endl;
             std::cout << "--- Equipo pokemon ---" << std::endl;
+            std::cout << "" << std::endl;
             for (int i = 0; i < player.getPokemonTeam().getTeamSize(); i++) {
-                std::cout << "Nombre del pokemon: "<<player.getPokemonTeam().getTeam()[i].getName() << std::endl;
+                std::cout << "*************************" << std::endl;
+                //En base a la posicion mostrar en que posicion se encuentra
+                std::cout << "Orden: "<<i << std::endl;
+                std::cout << "Nombre del pokemon: " << player.getPokemonTeam().getTeam()[i].getName() << std::endl;
+
+                std::cout << "" << std::endl;
+                
             }
+
+            std::cout << "*************************" << std::endl;
+            std::cout << "" << std::endl;
+
+            std::cout << "--- Menu Equipo Pokemon ---" << std::endl;
+            std::cout << "1- Ver datos de un pokemon " << std::endl;
+            std::cout << "2- Cambiar de orden los pokemon" << std::endl;
+            std::cout << "3- Salir" << std::endl;
+            std::cout << "Introduce una opcion: ";
+            std::cin >> opcion;
+
+            switch (opcion) {
+            case 1:
+            {
+
+                std::cout << "" << std::endl;
+                std::cout << "--- Equipo pokemon ---" << std::endl;
+                std::cout << "" << std::endl;
+                for (int i = 0; i < player.getPokemonTeam().getTeamSize(); i++) {
+                    std::cout << "*************************" << std::endl;
+
+                    std::cout << "Orden: " << i << std::endl;
+                    std::cout << "Nombre del pokemon: " << player.getPokemonTeam().getTeam()[i].getName() << std::endl;
+
+                    std::cout << "" << std::endl;
+
+                }
+                std::cout << "*************************" << std::endl;
+                std::cout << "" << std::endl;
+
+                //introducimos el orden el pokemon para mostrar los datos
+                int opcion;
+                std::cout << "introduce el ORDEN del pokemon";
+                std::cin >> opcion;
+                //Crear una funcion que gestione la vista
+                std::cout << "Nombre del pokemon: " << player.getPokemonTeam().getTeam()[opcion].getName() << std::endl;
+
+
+            }
+                break;
+            case 2:
+            {
+                if (player.getPokemonTeam().getTeamSize() == 1) {
+                    std::cout << "" << std::endl;
+                    std::cout << "No puedes cambiar de lugar pokemon, porque solo tienes uno" << std::endl;
+                    break;
+                }
+                std::cout << "" << std::endl;
+                std::cout << "--- Equipo pokemon ---" << std::endl;
+                std::cout << "" << std::endl;
+                for (int i = 0; i < player.getPokemonTeam().getTeamSize(); i++) {
+                    std::cout << "*************************" << std::endl;
+
+                    std::cout << "Orden: " << i << std::endl;
+                    std::cout << "Nombre del pokemon: " << player.getPokemonTeam().getTeam()[i].getName() << std::endl;
+
+                    std::cout << "" << std::endl;
+
+                }
+                std::cout << "*************************" << std::endl;
+                std::cout << "" << std::endl;
+
+                bool orderPokemonRemplazadoCorrecto = false;
+                bool orderPokemonRemplazanteCorrecto = false;
+                int posPokemonRemplazo;
+                int posPokemonRemplazante;
+                do {
+                    std::cout << "introduce el ORDEN del pokemon a reemplzar: ";
+                    std::cin >> posPokemonRemplazo;
+
+                    if (posPokemonRemplazo >= 0 && posPokemonRemplazo <=player.getPokemonTeam().getTeamSize()) {
+                        orderPokemonRemplazadoCorrecto = true;
+                    }
+                    else {
+                        std::cout << "" << std::endl;
+                        std::cout << "ERROR: Codigo de pokemon no correcto. Re intenta" << std::endl;
+                    }
+
+                } while (!orderPokemonRemplazadoCorrecto);
+
+
+                do {
+                    std::cout << "introduce el ORDEN del pokemon reemplazante: ";
+                    std::cin >> posPokemonRemplazante;
+
+                    if (posPokemonRemplazante >= 0 && posPokemonRemplazante <= player.getPokemonTeam().getTeamSize()) {
+                        orderPokemonRemplazanteCorrecto = true;
+                    }
+                    else {
+                        std::cout << "" << std::endl;
+                        std::cout << "ERROR: Codigo de pokemon no correcto. Re intenta" << std::endl;
+                    }
+
+                } while (!orderPokemonRemplazanteCorrecto);
+
+                player.getPokemonTeam().changePokemonOrder(posPokemonRemplazo, posPokemonRemplazante);
+             
+
+            }
+                break;
+            case 3:
+                break;
+
+            default:
+                std::cout << "La opcion no es valida. Intente otra" << std::endl;
+                break;
+            }
+
+        }
             break;
         case 3:
             std::cout << "Ver tus datos" << std::endl;
