@@ -7,13 +7,15 @@ class PokemonTeam
 	Pokemon pokemon[6];
 	int teamSize;
 
+private:
+		bool isTeamFull();
+
 public:
 	PokemonTeam();
 	Pokemon* getTeam();
 	Pokemon& getFirstPokemon();
 	bool addPokemonToTeam(Pokemon& pokemon);
-	bool changePokemonOrder(int posPokemonOne, int posPokemonTwo);
-	bool isTeamFull();
+	void changePokemonOrder(const int posPokemonOne, const int posPokemonTwo);
 	int getTeamSize();
 };
 

@@ -15,6 +15,12 @@ bool PokemonTeam::addPokemonToTeam(Pokemon& pokemon) {
 	return true;
 }
 
+void PokemonTeam::changePokemonOrder(const int posPokemonOne, const int posPokemonTwo) {
+	Pokemon pokemon = this->pokemon[posPokemonOne];
+	this->pokemon[posPokemonOne] = this->pokemon[posPokemonTwo];
+	this->pokemon[posPokemonTwo] = pokemon;
+}
+
 bool PokemonTeam::isTeamFull() { return (this->teamSize == 6) ? true : false; }
 
 int PokemonTeam::getTeamSize() { return this->teamSize; }
